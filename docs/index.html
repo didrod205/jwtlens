@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jwtlens — decode, audit & verify JWTs in your browser (nothing uploaded)</title>
+    <meta
+      name="description"
+      content="Paste a JWT to decode it, audit its security (alg:none, missing exp, alg-confusion) and verify the signature — 100% in your browser. Your token never leaves the page. A privacy-first jwt.io alternative."
+    />
+    <meta property="og:title" content="jwtlens — offline JWT decoder, auditor & verifier" />
+    <meta property="og:description" content="Decode, security-audit and verify JWTs entirely in your browser. Your token never leaves the page." />
+    <script type="module" crossorigin src="./assets/index-C5Bv2jnj.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DBuEjfEI.css">
+  </head>
+  <body>
+    <header class="hero">
+      <h1>🔍 jwtlens</h1>
+      <p class="tagline">
+        Decode, <strong>audit</strong> &amp; <strong>verify</strong> a JWT — right here in your browser.
+      </p>
+      <p class="privacy">🔒 100% local — your token (and your key) never leave this page. No upload, no server.</p>
+    </header>
+
+    <main>
+      <section class="input-card">
+        <div class="input-head">
+          <label for="token">Paste a JWT</label>
+          <div class="input-actions">
+            <button id="sample" type="button" class="ghost">Load sample</button>
+            <button id="clear" type="button" class="ghost">Clear</button>
+          </div>
+        </div>
+        <textarea id="token" spellcheck="false" autocomplete="off"
+          placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.…"></textarea>
+        <div id="error" class="error hidden"></div>
+      </section>
+
+      <section id="output" class="output hidden">
+        <div class="grid">
+          <div class="pane">
+            <h2>Header</h2>
+            <pre id="header" class="json"></pre>
+          </div>
+          <div class="pane">
+            <h2>Payload <span id="status" class="status"></span></h2>
+            <div id="payload" class="claims"></div>
+          </div>
+        </div>
+
+        <div class="pane audit">
+          <h2>Security audit <span id="score" class="score-badge"></span></h2>
+          <div id="findings"></div>
+        </div>
+
+        <div class="pane verify">
+          <h2>Verify signature <span class="dim">— offline, in your browser</span></h2>
+          <div class="verify-row">
+            <select id="keytype" aria-label="Key type">
+              <option value="secret">HMAC secret (HS*)</option>
+              <option value="pem">PEM public key (RS/PS/ES)</option>
+              <option value="jwk">JWK (JSON)</option>
+            </select>
+            <button id="verify-btn" type="button" class="primary">Verify</button>
+          </div>
+          <textarea id="key" spellcheck="false" autocomplete="off"
+            placeholder="your HMAC secret, or a -----BEGIN PUBLIC KEY----- block, or a {&quot;kty&quot;:…} JWK"></textarea>
+          <div id="verify-result" class="verify-result hidden"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Powered by <a href="https://www.npmjs.com/package/jwtlens"><code>jwtlens</code></a> —
+        the same engine, in a CLI: <code>npx jwtlens scan</code>.
+        <a href="https://github.com/didrod205/jwtlens">GitHub</a> · MIT
+      </p>
+      <p class="dim">Decoding &amp; auditing run on jwtlens' pure core; verification uses your browser's Web Crypto. Nothing is sent anywhere.</p>
+    </footer>
+
+  </body>
+</html>
