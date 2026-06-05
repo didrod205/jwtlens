@@ -1,0 +1,6 @@
+{
+  "ignore": [],
+  "maxLifetimeSeconds": 86400,
+  "clockSkewSeconds": 60,
+  "minScore": 0
+}

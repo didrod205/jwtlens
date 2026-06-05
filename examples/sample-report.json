@@ -1,0 +1,31 @@
+{
+  "tool": "jwtlens",
+  "version": "0.1.0",
+  "generatedAt": "2026-06-05T01:52:48.617Z",
+  "header": {
+    "alg": "RS256",
+    "typ": "JWT",
+    "kid": "k1"
+  },
+  "payload": {
+    "iss": "https://auth.example.com",
+    "sub": "user-4012",
+    "aud": "api.example.com",
+    "iat": 1893456000,
+    "exp": 1893456900,
+    "jti": "a1b2c3"
+  },
+  "verification": {
+    "valid": true,
+    "alg": "RS256",
+    "reason": "signature matches the supplied key"
+  },
+  "summary": {
+    "score": 100,
+    "grade": "A",
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0
+  },
+  "findings": []
+}

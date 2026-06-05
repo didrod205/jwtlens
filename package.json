@@ -1,0 +1,69 @@
+{
+  "name": "jwtlens",
+  "version": "0.1.0",
+  "description": "Decode, audit and verify JWTs entirely offline — never paste a live token into jwt.io again. Security lint (alg=none, missing/long exp, missing aud/iss) plus local signature verification (HS/RS/ES/PS) with your own secret, PEM or JWK. Deterministic CLI, JSON/Markdown reports, no API key.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "bin": {
+    "jwtlens": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit",
+    "example": "node dist/cli.js scan examples/weak.jwt.txt",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "jwt",
+    "jws",
+    "json-web-token",
+    "decode",
+    "verify",
+    "security",
+    "auth",
+    "authentication",
+    "offline",
+    "linter",
+    "jwt-decode",
+    "appsec",
+    "cli"
+  ],
+  "author": "didrod205 (https://github.com/didrod205)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/didrod205/jwtlens.git"
+  },
+  "bugs": {
+    "url": "https://github.com/didrod205/jwtlens/issues"
+  },
+  "homepage": "https://github.com/didrod205/jwtlens#readme",
+  "dependencies": {
+    "cac": "^6.7.14",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
