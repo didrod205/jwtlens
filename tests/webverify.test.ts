@@ -3,9 +3,15 @@
  * same `globalThis.crypto.subtle`, so we can exercise web/verify.ts here.
  */
 import { describe, expect, it } from "vitest";
-import { createHmac, createSign, generateKeyPairSync } from "node:crypto";
+import { createHmac, createSign, generateKeyPairSync, webcrypto } from "node:crypto";
 import { decodeJwt } from "../src/decode.js";
 import { verifyInBrowser } from "../web/verify.js";
+
+// Node 18 doesn't expose WebCrypto as a global (browsers and Node 20+ do). The
+// playground relies on the global `crypto`, so polyfill it for the older runtime.
+if (!globalThis.crypto) {
+  Object.defineProperty(globalThis, "crypto", { value: webcrypto, configurable: true, writable: true });
+}
 
 const b64u = (b: Buffer) => b.toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 const enc = (o: unknown) => b64u(Buffer.from(JSON.stringify(o)));
