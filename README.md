@@ -9,6 +9,8 @@
 [![types](https://img.shields.io/npm/types/jwtlens.svg)](https://www.npmjs.com/package/jwtlens)
 [![license](https://img.shields.io/npm/l/jwtlens.svg)](./LICENSE)
 
+**[🌐 Try the browser playground →](https://didrod205.github.io/jwtlens/)** &nbsp;·&nbsp; paste a JWT, see it decoded + audited + verified. Nothing is uploaded — it all runs client-side.
+
 </div>
 
 An API rejects your request, so you grab the JWT from a log line and — to read its
@@ -154,7 +156,8 @@ console.log(result.valid, findings.map((f) => f.rule));
 - Fetch a JWKS from an `iss`/`.well-known` URL (explicit opt-in; off by default).
 - `x5c`/`x5t` certificate-chain awareness and key-type/alg mismatch checks.
 - Encrypted JWE structure inspection (header only).
-- A web playground that runs `decode` + `lint` fully client-side (nothing uploaded).
+- ✅ **A browser playground** that runs decode + lint + verify fully client-side —
+  [live here](https://didrod205.github.io/jwtlens/) (nothing uploaded).
 
 ## 💖 Sponsor
 
