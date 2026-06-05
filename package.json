@@ -1,6 +1,6 @@
 {
   "name": "jwtlens",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Decode, audit and verify JWTs entirely offline — never paste a live token into jwt.io again. Security lint (alg=none, missing/long exp, missing aud/iss) plus local signature verification (HS/RS/ES/PS) with your own secret, PEM or JWK. Deterministic CLI, JSON/Markdown reports, no API key.",
   "type": "module",
   "main": "./dist/index.js",

@@ -4,6 +4,19 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/) and this project adheres to
 [Semantic Versioning](https://semver.org/).
 
+## [0.1.1] - 2026-06-05
+
+Docs/metadata release — the published library and CLI (`dist/`) are unchanged
+from 0.1.0.
+
+### Added
+
+- A **browser playground** — paste a JWT to decode, audit and verify it fully
+  client-side (signatures via the Web Crypto API, nothing uploaded). Live at
+  <https://didrod205.github.io/jwtlens/>. README now links it.
+- Internal: the playground source (`web/`, built to `docs/` for GitHub Pages) and
+  a Web Crypto verification test. These are not part of the npm package.
+
 ## [0.1.0] - 2026-06-05
 
 Initial public release.
